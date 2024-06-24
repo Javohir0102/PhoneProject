@@ -13,6 +13,8 @@ namespace PhoneProject
             contactServices.ExistedContacts();
             contactServices.ReadAllContacts();
             contactServices.AddContact();
+            contactServices.RemoveContact();
+            contactServices.EditContact();
             contactServices.ReadAllContacts();
         }
     }

@@ -6,20 +6,11 @@ namespace PhoneProject.Services;
 
 public class ContactServices
 {
-    /*    private Contact[] contacts =
-        {
-            new Contact
-            {
-                name = "Javohir",
-                phone = "12312312"
-            },
-            new Contact
-            {
-                name = "Hurshid",
-                phone = "12122121"
-            }
-        };*/
-
+    public List<Contact> contactList = new List<Contact>();
+    public void ShowMenu(string message)
+    {
+        Console.WriteLine(message);
+    }
     public void AddContact()
     {
         Console.Write("ism kiriting: ");
@@ -32,9 +23,28 @@ public class ContactServices
         contact.phone = phone;
         contactList.Add(contact);
     }
+    public void RemoveContact()
+    {
+        Console.Write("ism kiriting: ");
+        string name = Console.ReadLine();
+        contactList.RemoveAll(r => r.name == name);
+    }
+    public void EditContact()
+    {
+        Console.Write("Kimni kontaktini o'gartirmoqchisiz?, (ismini kiriting): ");
+        string name = Console.ReadLine();
+        bool isContactExist = contactList.Exists(r => r.name == name);
+        if (isContactExist)
+        {
+            contactList.Find(r => r.name == name).phone = Console.ReadLine();
+            Console.WriteLine("contact is successfully changed");
+        }
+        else
+        {
+            Console.WriteLine("not found this contact");
+        }
+    }
 
-
-    public List<Contact> contactList = new List<Contact>();
     public void ExistedContacts()
     {
         Contact contact1 = new Contact();
