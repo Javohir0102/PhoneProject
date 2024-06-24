@@ -10,6 +10,9 @@ namespace PhoneProject
         static void Main(string[] args)
         {
             ContactServices contactServices = new ContactServices();
+            contactServices.ExistedContacts();
+            contactServices.ReadAllContacts();
+            contactServices.AddContact();
             contactServices.ReadAllContacts();
         }
     }
