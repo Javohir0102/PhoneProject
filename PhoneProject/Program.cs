@@ -13,20 +13,20 @@ namespace PhoneProject
             ContactServices contactServices = new ContactServices();
 
             // Ask for the user's favorite fruit
-            var fruit = AnsiConsole.Prompt(
+            var menuChoice = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
-                    .Title("What's your [green]favorite fruit[/]?")
+                    .Title("Select your [green]choice[/]?")
                     .PageSize(10)
-                    .MoreChoicesText("[grey](Move up and down to reveal more fruits)[/]")
+                    .MoreChoicesText("[grey](Move up and down to reveal more services)[/]")
                     .AddChoices(new[] {
             "AddContact", "RemoveContact", "EditContact",
             "ExistedContacts", "ReadAllContacts",
                     }));
 
             // Echo the fruit back to the terminal
-            AnsiConsole.WriteLine($"I agree. {fruit} is tasty!");
+            AnsiConsole.WriteLine($"Your choice: {menuChoice}");
 
-            switch (fruit)
+            switch (menuChoice)
             {
                 case "AddContact":
                     {
